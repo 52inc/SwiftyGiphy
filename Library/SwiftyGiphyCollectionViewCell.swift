@@ -1,0 +1,87 @@
+//
+//  SwiftyGiphyCollectionViewCell.swift
+//  Pods
+//
+//  Created by Brendan Lee on 3/9/17.
+//
+//
+
+import UIKit
+import FLAnimatedImage
+import SDWebImage
+
+class SwiftyGiphyCollectionViewCell: UICollectionViewCell {
+    
+    fileprivate(set) var imageView: FLAnimatedImageView = FLAnimatedImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setup()
+    }
+    
+    fileprivate func setup() {
+        
+        let backgroundRoundedCornerView = RoundedCornerView()
+        backgroundRoundedCornerView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundRoundedCornerView.backgroundColor = UIColor.lightGray
+        backgroundRoundedCornerView.clipsToBounds = true
+        
+        let foregroundRoundedCornerView = RoundedCornerView()
+        foregroundRoundedCornerView.translatesAutoresizingMaskIntoConstraints = false
+        foregroundRoundedCornerView.backgroundColor = UIColor.lightGray
+        foregroundRoundedCornerView.clipsToBounds = true
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        
+        backgroundRoundedCornerView.addSubview(foregroundRoundedCornerView)
+        foregroundRoundedCornerView.addSubview(imageView)
+        
+        contentView.addSubview(backgroundRoundedCornerView)
+        
+        NSLayoutConstraint.activate([
+                backgroundRoundedCornerView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
+                backgroundRoundedCornerView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+                backgroundRoundedCornerView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
+                backgroundRoundedCornerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
+            ])
+        
+        NSLayoutConstraint.activate([
+                foregroundRoundedCornerView.leftAnchor.constraint(equalTo: backgroundRoundedCornerView.leftAnchor, constant: 1.0),
+                foregroundRoundedCornerView.topAnchor.constraint(equalTo: backgroundRoundedCornerView.topAnchor, constant: 1.0),
+                foregroundRoundedCornerView.bottomAnchor.constraint(equalTo: backgroundRoundedCornerView.bottomAnchor, constant: -1.0),
+                foregroundRoundedCornerView.rightAnchor.constraint(equalTo: backgroundRoundedCornerView.rightAnchor, constant: -1.0)
+            ])
+        
+        NSLayoutConstraint.activate([
+                imageView.leftAnchor.constraint(equalTo: foregroundRoundedCornerView.leftAnchor),
+                imageView.topAnchor.constraint(equalTo: foregroundRoundedCornerView.topAnchor),
+                imageView.bottomAnchor.constraint(equalTo: foregroundRoundedCornerView.bottomAnchor),
+                imageView.rightAnchor.constraint(equalTo: foregroundRoundedCornerView.rightAnchor)
+            ])
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.animatedImage = nil
+        imageView.image = nil
+    }
+    
+    /// Configure the cell for a giphy image set
+    ///
+    /// - Parameter imageSet: The imageset to configure the cell with
+    func configureFor(imageSet: GiphyImageSet)
+    {
+        imageView.sd_setShowActivityIndicatorView(true)
+        imageView.sd_setIndicatorStyle(.gray)
+        imageView.sd_setImage(with: imageSet.url)
+    }
+}

@@ -1,0 +1,39 @@
+PODS:
+  - FLAnimatedImage (1.0.12)
+  - NSTimer-Blocks (0.0.1)
+  - NYTPhotoViewer (1.1.0):
+    - NYTPhotoViewer/AnimatedGifSupport (= 1.1.0)
+    - NYTPhotoViewer/Core (= 1.1.0)
+  - NYTPhotoViewer/AnimatedGifSupport (1.1.0):
+    - FLAnimatedImage (~> 1.0.8)
+    - NYTPhotoViewer/Core
+  - NYTPhotoViewer/Core (1.1.0)
+  - ObjectMapper (2.2.4)
+  - SDWebImage/Core (4.0.0)
+  - SDWebImage/GIF (4.0.0):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
+  - SwiftyGiphy (1.0):
+    - NSTimer-Blocks
+    - NYTPhotoViewer (~> 1.1.0)
+    - ObjectMapper (~> 2.2)
+    - SDWebImage/GIF
+
+DEPENDENCIES:
+  - SwiftyGiphy (from `../SwiftyGiphy`)
+
+EXTERNAL SOURCES:
+  SwiftyGiphy:
+    :path: ../SwiftyGiphy
+
+SPEC CHECKSUMS:
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  NSTimer-Blocks: 88faf9aef5f250ead087f3f67ae642517083bf36
+  NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
+  ObjectMapper: 81d0e5d7c57129e3e93f29a04bdf9669542b37d2
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftyGiphy: b609d47f32935d0a9889fa6cfc00ba59a4d3c37a
+
+PODFILE CHECKSUM: fb2f2ca1df17c993ee8a9963fe9b0fd9f34f220c
+
+COCOAPODS: 1.2.0
