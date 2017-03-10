@@ -11,13 +11,10 @@ The SwiftyGiphy view controller provides a delegate hook so you can be notified 
 <img src="https://github.com/52inc/SwiftyGiphy/blob/master/Screenshots/SearchScreenshot.png?raw=true" width=320/>
 
 ##Installing
-SwiftyGiphy supports Cocoapods, Carthage, and manual includes.
+SwiftyGiphy supports Cocoapods and manual includes.
 
 ####Cocoapods
 `pod 'SwiftyGiphy', '~> 1.0'`
-
-####Carthage
-`github "52inc/SwiftyGiphy"`
 
 ####Manual Include
 Add the files in the Library and Assets folder to your project.
