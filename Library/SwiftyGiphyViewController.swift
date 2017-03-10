@@ -64,6 +64,12 @@ public class SwiftyGiphyViewController: UIViewController {
     
     public var maxSizeInBytes: UInt64 = 2048000 // 2MB size cap by default. We're on mobile, after all.
     
+    public var collectionViewLayout: SwiftyGiphyGridLayout? {
+        get {
+            return collectionView.collectionViewLayout as? SwiftyGiphyGridLayout
+        }
+    }
+    
     public weak var delegate: SwiftyGiphyViewControllerDelegate?
     
     public override func loadView() {
@@ -256,7 +262,7 @@ public class SwiftyGiphyViewController: UIViewController {
             
             self.searchCounter += 1
             
-            let currentCounter = self.searchCounter ?? 0
+            let currentCounter = self.searchCounter
             
             let maxBytes = self.maxSizeInBytes
             let width = max((self.collectionView.collectionViewLayout as? SwiftyGiphyGridLayout)?.columnWidth ?? 0.0, 0.0)
@@ -306,7 +312,7 @@ public class SwiftyGiphyViewController: UIViewController {
 // MARK: - SwiftyGiphyGridLayoutDelegate
 extension SwiftyGiphyViewController: SwiftyGiphyGridLayoutDelegate {
     
-    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat
+    public func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat
     {
         guard let imageSet = currentGifs?[indexPath.row].imageSetClosestTo(width: withWidth, animated: true) else {
             return 0.0

@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol SwiftyGiphyGridLayoutDelegate: class {
+public protocol SwiftyGiphyGridLayoutDelegate: class {
     
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat
 }
 
-class SwiftyGiphyGridLayout: UICollectionViewLayout {
+public class SwiftyGiphyGridLayout: UICollectionViewLayout {
 
     weak var delegate: SwiftyGiphyGridLayoutDelegate?
     
@@ -55,7 +55,7 @@ class SwiftyGiphyGridLayout: UICollectionViewLayout {
     
     fileprivate(set) var contentHeight: CGFloat = 0.0
     
-    override func prepare() {
+    override public func prepare() {
         
         if cellAttributeCache.isEmpty
         {
@@ -109,27 +109,27 @@ class SwiftyGiphyGridLayout: UICollectionViewLayout {
         }
     }
     
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return cellAttributeCache[indexPath.row]
     }
     
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 
         return cellAttributeCache.filter({ $0.frame.intersects(rect) })
     }
     
-    override var collectionViewContentSize: CGSize {
+    override public var collectionViewContentSize: CGSize {
         return CGSize(width: contentWidth, height: contentHeight)
     }
     
-    override func invalidateLayout() {
+    override public func invalidateLayout() {
         super.invalidateLayout()
         
         contentHeight = 0.0
         cellAttributeCache = [UICollectionViewLayoutAttributes]()
     }
     
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    override public func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
 }

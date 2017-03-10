@@ -98,7 +98,7 @@ public class SwiftyGiphyAPI {
             }
             
             // We have gifs!
-            guard let validResponse = response, let gifs = Mapper<GiphyMultipleGIFResponse>().map(JSONObject: response) else {
+            guard let validResponse = response, let gifs = Mapper<GiphyMultipleGIFResponse>().map(JSONObject: validResponse) else {
                 
                 completion?(self.networkError(description: kGiphyUnknownResponseError), nil)
                 return
@@ -153,7 +153,7 @@ public class SwiftyGiphyAPI {
             }
             
             // We have gifs!
-            guard let validResponse = response, let gifs = Mapper<GiphyMultipleGIFResponse>().map(JSONObject: response) else {
+            guard let validResponse = response, let gifs = Mapper<GiphyMultipleGIFResponse>().map(JSONObject: validResponse) else {
                 
                 completion?(self.networkError(description: kGiphyUnknownResponseError), nil)
                 return
@@ -276,7 +276,7 @@ public class SwiftyGiphyAPI {
                 
                 for (key, value) in localparams
                 {
-                    var stringValue = (value as? String) ?? String(describing: value)
+                    let stringValue = (value as? String) ?? String(describing: value)
 
                     queryItems.append(URLQueryItem(name: key, value: stringValue))
                 }
