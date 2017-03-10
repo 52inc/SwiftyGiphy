@@ -30,7 +30,7 @@ class SwiftyGiphyCollectionViewCell: UICollectionViewCell {
         
         let backgroundRoundedCornerView = RoundedCornerView()
         backgroundRoundedCornerView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundRoundedCornerView.backgroundColor = UIColor.lightGray
+        backgroundRoundedCornerView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         backgroundRoundedCornerView.clipsToBounds = true
         
         let foregroundRoundedCornerView = RoundedCornerView()
@@ -54,10 +54,10 @@ class SwiftyGiphyCollectionViewCell: UICollectionViewCell {
             ])
         
         NSLayoutConstraint.activate([
-                foregroundRoundedCornerView.leftAnchor.constraint(equalTo: backgroundRoundedCornerView.leftAnchor, constant: 1.0),
-                foregroundRoundedCornerView.topAnchor.constraint(equalTo: backgroundRoundedCornerView.topAnchor, constant: 1.0),
-                foregroundRoundedCornerView.bottomAnchor.constraint(equalTo: backgroundRoundedCornerView.bottomAnchor, constant: -1.0),
-                foregroundRoundedCornerView.rightAnchor.constraint(equalTo: backgroundRoundedCornerView.rightAnchor, constant: -1.0)
+                foregroundRoundedCornerView.leftAnchor.constraint(equalTo: backgroundRoundedCornerView.leftAnchor, constant: 1.0 / UIScreen.main.scale),
+                foregroundRoundedCornerView.topAnchor.constraint(equalTo: backgroundRoundedCornerView.topAnchor, constant: 1.0 / UIScreen.main.scale),
+                foregroundRoundedCornerView.bottomAnchor.constraint(equalTo: backgroundRoundedCornerView.bottomAnchor, constant: -(1.0 / UIScreen.main.scale)),
+                foregroundRoundedCornerView.rightAnchor.constraint(equalTo: backgroundRoundedCornerView.rightAnchor, constant: -(1.0 / UIScreen.main.scale))
             ])
         
         NSLayoutConstraint.activate([

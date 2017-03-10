@@ -36,10 +36,6 @@ Provides a UI and API layer for Giphy discovery and integration.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'AVFoundation'
 
-  s.xcconfig = {
-    'SWIFT_VERSION' => '3.0'
-  }
-  
   s.dependency 'ObjectMapper', '~> 2.2'
   s.dependency 'NYTPhotoViewer', '~> 1.1.0'
   s.dependency 'SDWebImage/GIF'
