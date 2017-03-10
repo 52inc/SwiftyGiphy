@@ -28,7 +28,7 @@ Provides a UI and API layer for Giphy discovery and integration.
   s.source           = { :git => 'https://github.com/52inc/SwiftyGiphy.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/52_inc'
 
-  s.ios.deployment_target = '9.1'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'Library/*.*'
   s.resources = 'Assets/*.*'
