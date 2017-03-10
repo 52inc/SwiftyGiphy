@@ -19,6 +19,9 @@ SwiftyGiphy supports Cocoapods and manual includes.
 ####Manual Include
 Add the files in the Library and Assets folder to your project.
 
+####Carthage / Swift Package Manager
+Carthage and Swift Package Manager are not currently supported. But, if you'd like to create a pull request with support for either of these I'd be happy to consider including it.
+
 ##Usage
 
 ###Setup
