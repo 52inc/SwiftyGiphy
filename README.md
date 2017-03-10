@@ -5,6 +5,11 @@ The library includes a view controller you can present that shows trending giphy
 
 The SwiftyGiphy view controller provides a delegate hook so you can be notified of what gif a user has selected.
 
+<img src="https://github.com/52inc/SwiftyGiphy/blob/master/Screenshots/TrendingScreenshot.png?raw=true" width=320/>
+<br/>
+<br/>
+<img src="https://github.com/52inc/SwiftyGiphy/blob/master/Screenshots/SearchScreenshot.png?raw=true" width=320/>
+
 ##Installing
 SwiftyGiphy supports Cocoapods, Carthage, and manual includes.
 
