@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyGiphy'
-  s.version          = '1.0'
+  s.version          = '1.0.1'
   s.summary          = 'Provides a UI and API layer for Giphy discovery and integration.'
 
 # This description is used to generate tags and improve search results.
@@ -37,7 +37,7 @@ An easy to use library that provides a UI and API layer for Giphy discovery and 
   s.frameworks = 'UIKit', 'AVFoundation'
 
   s.dependency 'ObjectMapper', '~> 2.2'
-  s.dependency 'NYTPhotoViewer', '~> 1.1.0'
   s.dependency 'SDWebImage/GIF'
   s.dependency 'NSTimer-Blocks'
+  s.dependency 'FLAnimatedImage', '~> 1.0'
 end
