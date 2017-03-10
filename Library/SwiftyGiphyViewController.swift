@@ -247,6 +247,9 @@ public class SwiftyGiphyViewController: UIViewController {
         }
         
         guard let searchText = searchController.searchBar.text, searchText.characters.count > 0 else {
+            
+            self.searchCounter += 1
+            self.currentGifs = combinedTrendingGifs
             return
         }
         
@@ -269,15 +272,15 @@ public class SwiftyGiphyViewController: UIViewController {
             
             SwiftyGiphyAPI.shared.getSearch(searchTerm: searchText, limit: 100, rating: self.contentRating, offset: self.currentSearchPageOffset) { [weak self] (error, response) in
                 
+                self?.isSearchPageLoadInProgress = false
+                
                 guard currentCounter == self?.searchCounter else {
                     
                     return
                 }
                 
-                self?.isTrendingPageLoadInProgress = false
                 self?.loadingIndicator.stopAnimating()
                 self?.errorLabel.isHidden = true
-                self?.isSearchPageLoadInProgress = false
                 
                 guard error == nil else {
                     
@@ -393,10 +396,6 @@ extension SwiftyGiphyViewController: UISearchControllerDelegate {
 extension SwiftyGiphyViewController: UISearchResultsUpdating {
     
     public func updateSearchResults(for searchController: UISearchController) {
-        
-        guard searchController.searchBar.text?.characters.count ?? 0 > 0 else {
-            return
-        }
         
         // Destroy current results
         searchCounter += 1

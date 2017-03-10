@@ -1,7 +1,7 @@
 #SwiftyGiphy
 SwiftyGiphy is a library to allow you to easily integrate Giphy image search into your app.
 
-The library includes a view controller you can present that shows trending giphy images, and allows search. The controller also supports paging so your users can contiously scroll and see results.
+The library includes a view controller you can present that shows trending Giphy images, and allows search. The controller also supports paging so your users can contiously scroll and see results.
 
 The SwiftyGiphy view controller provides a delegate hook so you can be notified of what gif a user has selected.
 
@@ -17,7 +17,12 @@ SwiftyGiphy supports Cocoapods and manual includes.
 `pod 'SwiftyGiphy', '~> 1.0'`
 
 ####Manual Include
-Add the files in the Library and Assets folder to your project.
+Add the files in the Library and Assets folder to your project. You'll also need to include the dependencies:
+
+* [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) - v2.2
+* [SDWebImage/GIF](https://github.com/rs/SDWebImage)
+* [NSTimer-Blocks](https://github.com/jivadevoe/NSTimer-Blocks)
+* [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) - v1.0
 
 ####Carthage / Swift Package Manager
 Carthage and Swift Package Manager are not currently supported. But, if you'd like to create a pull request with support for either of these I'd be happy to consider including it.
@@ -34,7 +39,7 @@ You'll need to configure SwiftyGiphy with your Giphy API key. We recommend you d
 `SwiftyGiphyAPI.shared.apiKey = SwiftyGiphyAPI.publicBetaKey`
 
 ###Recommendations
-Recommended usage is to present SwiftyGiphyViewController modally, with another object (such as the presenting view controller) assigned as the delegate of SwiftyGiphyViewController.
+Recommended usage is to present SwiftyGiphyViewController modally in a UINavigationController, with another object (such as the presenting view controller) assigned as the delegate of SwiftyGiphyViewController.
 
 You should dismiss SwiftyGiphyViewController in the delegate methods, when you need to.
 
@@ -47,3 +52,11 @@ SwiftyGiphy provides a few useful things for your Giphy integration:
 * **SwiftyGiphyViewControllerDelegate** is called by SwiftyGiphyViewController to notify you when the user selects GIFs, or is ready to close the screen.
 * **SwiftyGiphyAPI** provides easy access to the Giphy API. Currently the search and trending endpoints are implemented. Hint: I'd welcome pull requests with this component more fleshed out.
 * **SwiftyGiphy Data Models** are provided by the API layer so you can interact with real objects instead of dictionaries and arrays.
+
+##Questions
+If you have questions on how to integrate SwiftyGiphy into your project, feel free to create an issue and we'll try to help the best we can. Please note that we'll only be able to provide assistance for SwiftyGiphy in its 'stock' form, and we won't assist with problems you have due to custom modifications.
+
+Pull requests are encouraged, especially if you feel like assisting in more full implementing the Giphy API layer.
+
+##Apps using SwiftyGiphy
+If you have an app using SwiftyGiphy, let me know and I'll link to it here.
