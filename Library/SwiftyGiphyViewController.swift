@@ -357,8 +357,10 @@ extension SwiftyGiphyViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
         
+        let selectedGif = currentGifs![indexPath.row]
+        
         searchController.isActive = false
-        delegate?.giphyControllerDidSelectGif(controller: self, item: currentGifs![indexPath.row])
+        delegate?.giphyControllerDidSelectGif(controller: self, item: selectedGif)
     }
 }
 
