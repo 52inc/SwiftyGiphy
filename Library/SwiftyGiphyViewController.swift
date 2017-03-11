@@ -192,6 +192,7 @@ public class SwiftyGiphyViewController: UIViewController {
     
     @objc fileprivate func dismissPicker()
     {
+        searchController.isActive = false
         delegate?.giphyControllerDidCancel(controller: self)
     }
     
@@ -356,6 +357,7 @@ extension SwiftyGiphyViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
         
+        searchController.isActive = false
         delegate?.giphyControllerDidSelectGif(controller: self, item: currentGifs![indexPath.row])
     }
 }
