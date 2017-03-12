@@ -60,16 +60,23 @@ public class SwiftyGiphyViewController: UIViewController {
         }
     }
     
+    /// The maximum content rating allowed for the shown gifs
     public var contentRating: SwiftyGiphyAPIContentRating = .pg13
     
+    /// The maximum allowed size for gifs shown in the feed
     public var maxSizeInBytes: UInt64 = 2048000 // 2MB size cap by default. We're on mobile, after all.
     
+    /// Allow paging the API results. Enabled by default, but you can disable it if you use a custom base URL that doesn't support it.
+    public var allowResultPaging: Bool = true
+    
+    /// The collection view layout that governs the waterfall layout of the gifs. There are a few parameters you can modify, but we recommend the defaults.
     public var collectionViewLayout: SwiftyGiphyGridLayout? {
         get {
             return collectionView.collectionViewLayout as? SwiftyGiphyGridLayout
         }
     }
     
+    /// The object to receive callbacks for when the user cancels or selects a gif. It is the delegate's responsibility to dismiss the SwiftyGiphyViewController.
     public weak var delegate: SwiftyGiphyViewControllerDelegate?
     
     public override func loadView() {
@@ -415,6 +422,10 @@ extension SwiftyGiphyViewController: UISearchResultsUpdating {
 extension SwiftyGiphyViewController: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        guard allowResultPaging else {
+            return
+        }
         
         if scrollView.contentOffset.y + scrollView.bounds.height + 100 >= scrollView.contentSize.height
         {
