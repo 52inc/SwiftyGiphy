@@ -1,4 +1,5 @@
 #SwiftyGiphy
+
 SwiftyGiphy is a library to allow you to easily integrate Giphy image search into your app.
 
 ###The library consists of 2 primary components

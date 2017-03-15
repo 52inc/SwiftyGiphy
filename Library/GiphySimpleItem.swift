@@ -50,12 +50,6 @@ public struct GiphySimpleItem: Mappable {
     
     public mutating func mapping(map: Map) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        
-        let dateTransformer = DateFormatterTransform(dateFormatter: dateFormatter)
-        
         type                            <- map["type"]
         identifier                      <- map["id"]
         url                             <- (map["url"], URLTransform())
