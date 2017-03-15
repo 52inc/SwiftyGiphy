@@ -1,9 +1,11 @@
 #SwiftyGiphy
 SwiftyGiphy is a library to allow you to easily integrate Giphy image search into your app.
 
-The library includes a view controller you can present that shows trending Giphy images, and allows search. The controller also supports paging so your users can contiously scroll and see results.
+###The library consists of 2 primary components
 
-The SwiftyGiphy view controller provides a delegate hook so you can be notified of what gif a user has selected.
+1. **SwiftyGiphyViewController**, which provides a simple UI for search, and callbacks for selected images so you can quickly integrate Giphy in to your app. The controller also supports paging so your users can contiously scroll and see results.
+
+2. **SwiftyGiphyAPI**, which provides an API layer to access Giphy. This does not require you to use SwiftyGiphyViewController for your UI, and can be used standalone.
 
 <img src="https://github.com/52inc/SwiftyGiphy/blob/master/Screenshots/TrendingScreenshot.png?raw=true" width=320/>
 <br/>
@@ -43,14 +45,14 @@ Recommended usage is to present SwiftyGiphyViewController modally in a UINavigat
 
 You should dismiss SwiftyGiphyViewController in the delegate methods, when you need to.
 
-**IMPORTANT:** SwiftyGiphyViewController will not dismiss itself. Similar UIImagePickerController, you'll need to dismiss it from a delegate callback when you want it to go away.
+**IMPORTANT:** SwiftyGiphyViewController will not dismiss itself. Similar to UIImagePickerController, you'll need to dismiss it from a delegate callback when you want it to go away.
 
 ##Components
 SwiftyGiphy provides a few useful things for your Giphy integration:
 
 * **SwiftyGiphyViewController** (outlined above) gives you an easy to use UI for interacting with Giphy image search.
 * **SwiftyGiphyViewControllerDelegate** is called by SwiftyGiphyViewController to notify you when the user selects GIFs, or is ready to close the screen.
-* **SwiftyGiphyAPI** provides easy access to the Giphy API. Currently the search and trending endpoints are implemented. Hint: I'd welcome pull requests with this component more fleshed out.
+* **SwiftyGiphyAPI** provides easy access to the Giphy API. Currently this supports all of the Giphy API [documented here](https://github.com/Giphy/GiphyAPI), with the exception of image uploads.
 * **SwiftyGiphy Data Models** are provided by the API layer so you can interact with real objects instead of dictionaries and arrays.
 
 ##Questions

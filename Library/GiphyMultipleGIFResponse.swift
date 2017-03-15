@@ -29,7 +29,7 @@ public struct GiphyMultipleGIFResponse: Mappable {
         meta        <- map["meta"]
     }
     
-    func gifsSmallerThan(sizeInBytes: UInt64, forWidth: CGFloat) -> [GiphyItem]
+    func gifsSmallerThan(sizeInBytes: Int, forWidth: CGFloat) -> [GiphyItem]
     {
         return gifs.filter({
             let size = $0.imageSetClosestTo(width: forWidth, animated: true)?.size ?? 0
