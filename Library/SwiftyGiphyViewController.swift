@@ -234,7 +234,7 @@ public class SwiftyGiphyViewController: UIViewController {
                     self?.errorLabel.isHidden = false
                 }
 
-                print("Giphy error: \(error?.localizedDescription)")
+                print("Giphy error: \(String(describing: error?.localizedDescription))")
                 return
             }
 
@@ -298,7 +298,7 @@ public class SwiftyGiphyViewController: UIViewController {
                         self?.errorLabel.isHidden = false
                     }
 
-                    print("Giphy error: \(error?.localizedDescription)")
+                    print("Giphy error: \(String(describing: error?.localizedDescription))")
                     return
                 }
 

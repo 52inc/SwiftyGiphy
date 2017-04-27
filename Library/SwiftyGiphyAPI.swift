@@ -183,7 +183,7 @@ public class SwiftyGiphyAPI {
         
         request.httpMethod = method
         
-        if let localparams = params as? [String : AnyObject]
+        if let localparams = params as [String : AnyObject]?
         {
             if method == "GET"
             {
