@@ -129,6 +129,7 @@
 					C60B80391E71E45000ECF39E = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = P87N88ZC7B;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
