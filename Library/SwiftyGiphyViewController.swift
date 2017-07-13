@@ -164,6 +164,8 @@ public class SwiftyGiphyViewController: UIViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
 
         if self.navigationController?.viewControllers.count == 1 && self.navigationController?.presentingViewController != nil
         {
