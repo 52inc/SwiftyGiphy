@@ -109,7 +109,7 @@ public class SwiftyGiphyViewController: UIViewController {
 
         errorLabel.textAlignment = .center
         errorLabel.textColor = UIColor.lightGray
-        errorLabel.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightMedium)
+        errorLabel.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
         errorLabel.numberOfLines = 0
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.isHidden = true
@@ -180,8 +180,16 @@ public class SwiftyGiphyViewController: UIViewController {
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        collectionView.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length + 44.0, 0.0, 10.0, 0.0)
-        collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(self.topLayoutGuide.length + 44.0, 0.0, 10.0, 0.0)
+        if #available(iOS 11, *)
+        {
+            collectionView.contentInset = UIEdgeInsetsMake(44.0, 0.0, 10.0, 0.0)
+            collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(44.0, 0.0, 10.0, 0.0)
+        }
+        else
+        {
+            collectionView.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length + 44.0, 0.0, 10.0, 0.0)
+            collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(self.topLayoutGuide.length + 44.0, 0.0, 10.0, 0.0)
+        }
     }
 
     public override func viewDidLayoutSubviews() {
