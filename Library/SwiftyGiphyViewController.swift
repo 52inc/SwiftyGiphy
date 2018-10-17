@@ -25,7 +25,7 @@ public class SwiftyGiphyViewController: UIViewController {
 
     fileprivate let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: SwiftyGiphyGridLayout())
 
-    fileprivate let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    fileprivate let loadingIndicator = UIActivityIndicatorView(style: .whiteLarge)
 
     fileprivate let errorLabel: UILabel = UILabel()
 
@@ -157,7 +157,7 @@ public class SwiftyGiphyViewController: UIViewController {
             collectionViewLayout.delegate = self
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBottomLayoutConstraintWithNotification(notification:)), name: .UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBottomLayoutConstraintWithNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 
         fetchNextTrendingDataPage()
     }
@@ -182,13 +182,13 @@ public class SwiftyGiphyViewController: UIViewController {
 
         if #available(iOS 11, *)
         {
-            collectionView.contentInset = UIEdgeInsetsMake(44.0, 0.0, 10.0, 0.0)
-            collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(44.0, 0.0, 10.0, 0.0)
+            collectionView.contentInset = UIEdgeInsets.init(top: 44.0, left: 0.0, bottom: 10.0, right: 0.0)
+            collectionView.scrollIndicatorInsets = UIEdgeInsets.init(top: 44.0, left: 0.0, bottom: 10.0, right: 0.0)
         }
         else
         {
-            collectionView.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length + 44.0, 0.0, 10.0, 0.0)
-            collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(self.topLayoutGuide.length + 44.0, 0.0, 10.0, 0.0)
+            collectionView.contentInset = UIEdgeInsets.init(top: self.topLayoutGuide.length + 44.0, left: 0.0, bottom: 10.0, right: 0.0)
+            collectionView.scrollIndicatorInsets = UIEdgeInsets.init(top: self.topLayoutGuide.length + 44.0, left: 0.0, bottom: 10.0, right: 0.0)
         }
     }
 
@@ -264,7 +264,7 @@ public class SwiftyGiphyViewController: UIViewController {
             return
         }
 
-        guard let searchText = searchController.searchBar.text, searchText.characters.count > 0 else {
+        guard let searchText = searchController.searchBar.text, searchText.count > 0 else {
 
             self.searchCounter += 1
             self.currentGifs = combinedTrendingGifs
@@ -476,15 +476,15 @@ extension SwiftyGiphyViewController {
             return
         }
 
-        let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        let keyboardEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let convertedKeyboardEndFrame = view.convert(keyboardEndFrame, from: view.window)
-        let rawAnimationCurve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).uint32Value << 16
-        let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
+        let rawAnimationCurve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber).uint32Value << 16
+        let animationCurve = UIView.AnimationOptions(rawValue: UInt(rawAnimationCurve))
 
         let newConstantValue: CGFloat = max(self.view.bounds.maxY - convertedKeyboardEndFrame.minY + constantAdjustment, 0.0)
 
-        if fabs(bottomLayoutConstraint.constant - newConstantValue) >= 1.0
+        if abs(bottomLayoutConstraint.constant - newConstantValue) >= 1.0
         {
             UIView.animate(withDuration: animationDuration, delay: 0.0, options: animationCurve, animations: {
 
