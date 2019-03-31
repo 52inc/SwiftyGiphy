@@ -253,7 +253,7 @@ public extension SwiftyGiphyAPI {
     ///   - rating: The max rating for the gifs
     ///   - offset: The paging offset
     ///   - completion: The completion block to call when done
-    public func getTrending(limit: Int = 25, rating: SwiftyGiphyAPIContentRating = .pg13, offset: Int? = nil, completion: GiphyMultipleGIFResponseBlock?)
+    func getTrending(limit: Int = 25, rating: SwiftyGiphyAPIContentRating = .pg13, offset: Int? = nil, completion: GiphyMultipleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")
@@ -311,7 +311,7 @@ public extension SwiftyGiphyAPI {
     ///   - rating: The max rating for the gifs
     ///   - offset: The paging offset
     ///   - completion: The completion block to call when done
-    public func getSearch(searchTerm: String, limit: Int = 25, rating: SwiftyGiphyAPIContentRating = .pg13, offset: Int? = nil, completion: GiphyMultipleGIFResponseBlock?)
+    func getSearch(searchTerm: String, limit: Int = 25, rating: SwiftyGiphyAPIContentRating = .pg13, offset: Int? = nil, completion: GiphyMultipleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")
@@ -369,7 +369,7 @@ public extension SwiftyGiphyAPI {
     ///   - rating: The max rating for the image (optional, defaults to pg13)
     ///   - languageCode: The language code (optional)
     ///   - completion: The completion block to call when done
-    public func getTranslation(searchTerm: String, rating: SwiftyGiphyAPIContentRating = .pg13, languageCode: String? = nil, completion: GiphySingleGIFResponseBlock?)
+    func getTranslation(searchTerm: String, rating: SwiftyGiphyAPIContentRating = .pg13, languageCode: String? = nil, completion: GiphySingleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")
@@ -425,7 +425,7 @@ public extension SwiftyGiphyAPI {
     ///   - tag: The tag to limit the randomness with
     ///   - rating: The max rating to limit the image to
     ///   - completion: The completion block to call when done
-    public func getRandom(tag: String, rating: SwiftyGiphyAPIContentRating = .pg13, completion: GiphySimpleSingleGIFResponseBlock?)
+    func getRandom(tag: String, rating: SwiftyGiphyAPIContentRating = .pg13, completion: GiphySimpleSingleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")
@@ -475,7 +475,7 @@ public extension SwiftyGiphyAPI {
     /// - Parameters:
     ///   - identifier: The identifier of the gif
     ///   - completion: The completion block to call when done.
-    public func getGIFById(identifier: String, completion: GiphySingleGIFResponseBlock?)
+    func getGIFById(identifier: String, completion: GiphySingleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")
@@ -529,7 +529,7 @@ public extension SwiftyGiphyAPI {
     ///   - rating: The max rating for the stickers
     ///   - offset: The paging offset
     ///   - completion: The completion block to call when done
-    public func getTrendingStickers(limit: Int = 25, rating: SwiftyGiphyAPIContentRating = .pg13, offset: Int? = nil, completion: GiphyMultipleGIFResponseBlock?)
+    func getTrendingStickers(limit: Int = 25, rating: SwiftyGiphyAPIContentRating = .pg13, offset: Int? = nil, completion: GiphyMultipleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultStickerAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")
@@ -587,7 +587,7 @@ public extension SwiftyGiphyAPI {
     ///   - rating: The max rating for the stickers
     ///   - offset: The paging offset
     ///   - completion: The completion block to call when done
-    public func getSearchStickers(searchTerm: String, limit: Int = 25, rating: SwiftyGiphyAPIContentRating = .pg13, offset: Int? = nil, completion: GiphyMultipleGIFResponseBlock?)
+    func getSearchStickers(searchTerm: String, limit: Int = 25, rating: SwiftyGiphyAPIContentRating = .pg13, offset: Int? = nil, completion: GiphyMultipleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultStickerAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")
@@ -645,7 +645,7 @@ public extension SwiftyGiphyAPI {
     ///   - rating: The max rating for the image (optional, defaults to pg13)
     ///   - languageCode: The language code (optional)
     ///   - completion: The completion block to call when done
-    public func getTranslationStickers(searchTerm: String, rating: SwiftyGiphyAPIContentRating = .pg13, languageCode: String? = nil, completion: GiphySingleGIFResponseBlock?)
+    func getTranslationStickers(searchTerm: String, rating: SwiftyGiphyAPIContentRating = .pg13, languageCode: String? = nil, completion: GiphySingleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultStickerAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")
@@ -701,7 +701,7 @@ public extension SwiftyGiphyAPI {
     ///   - tag: The tag to limit the randomness with
     ///   - rating: The max rating to limit the image to
     ///   - completion: The completion block to call when done
-    public func getRandomSticker(tag: String, rating: SwiftyGiphyAPIContentRating = .pg13, completion: GiphySimpleSingleGIFResponseBlock?)
+    func getRandomSticker(tag: String, rating: SwiftyGiphyAPIContentRating = .pg13, completion: GiphySimpleSingleGIFResponseBlock?)
     {
         guard apiKey != nil || !isUsingDefaultStickerAPIBase else {
             print("ATTENTION: You need to set your Giphy API key before using SwiftyGiphy.")

@@ -6,7 +6,7 @@ PODS:
   - SDWebImage/GIF (4.0.0):
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
-  - SwiftyGiphy (1.1.1):
+  - SwiftyGiphy (1.2.0):
     - FLAnimatedImage (~> 1.0)
     - NSTimer-Blocks
     - ObjectMapper (~> 3.0)
@@ -31,8 +31,8 @@ SPEC CHECKSUMS:
   NSTimer-Blocks: 88faf9aef5f250ead087f3f67ae642517083bf36
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  SwiftyGiphy: bceb75259b1b3a8a1d76019a90b9009119fe823c
+  SwiftyGiphy: 6fb86ca967445826a9b1aa629ce22d970bca579d
 
 PODFILE CHECKSUM: 99ae6577f47a8d8b2d37875a1c21f2c41e5295fb
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
