@@ -83,7 +83,13 @@ public class SwiftyGiphyViewController: UIViewController {
         super.loadView()
 
         self.title = NSLocalizedString("Giphy", comment: "Giphy")
+        
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "GiphyLogoEmblem", in: Bundle(for: SwiftyGiphyViewController.self), compatibleWith: nil))
+        if #available(iOS 13, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                self.navigationItem.titleView = UIImageView(image: UIImage(named: "GiphyLogoEmblemLight", in: Bundle(for: SwiftyGiphyViewController.self), compatibleWith: nil))
+            }
+        }
 
         searchController.searchBar.placeholder = NSLocalizedString("Search GIFs", comment: "The placeholder string for the Giphy search field")
         searchController.searchResultsUpdater = self
@@ -201,6 +207,21 @@ public class SwiftyGiphyViewController: UIViewController {
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 13.0, *) {
+            let hasUserInterfaceStyleChanged = previousTraitCollection?.hasDifferentColorAppearance(comparedTo: traitCollection) ?? false
+            if hasUserInterfaceStyleChanged {
+                if traitCollection.userInterfaceStyle == .dark {
+                    self.navigationItem.titleView = UIImageView(image: UIImage(named: "GiphyLogoEmblemLight", in: Bundle(for: SwiftyGiphyViewController.self), compatibleWith: nil))
+                } else {
+                    self.navigationItem.titleView = UIImageView(image: UIImage(named: "GiphyLogoEmblem", in: Bundle(for: SwiftyGiphyViewController.self), compatibleWith: nil))
+                }
+            }
+        }
     }
 
     deinit {
