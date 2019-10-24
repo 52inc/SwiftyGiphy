@@ -16,7 +16,7 @@ DEPENDENCIES:
   - SwiftyGiphy (from `../SwiftyGiphy`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - FLAnimatedImage
     - NSTimer-Blocks
     - ObjectMapper
@@ -35,4 +35,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 99ae6577f47a8d8b2d37875a1c21f2c41e5295fb
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.8.3
