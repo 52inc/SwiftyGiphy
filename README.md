@@ -22,7 +22,7 @@ SwiftyGiphy supports Cocoapods and manual includes.
 #### Manual Include
 Add the files in the Library and Assets folder to your project. You'll also need to include the dependencies:
 
-* [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) - v2.2
+* [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) - v3.5.1
 * [SDWebImage/GIF](https://github.com/rs/SDWebImage)
 * [NSTimer-Blocks](https://github.com/jivadevoe/NSTimer-Blocks)
 * [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) - v1.0
