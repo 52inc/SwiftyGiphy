@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyGiphy'
-  s.version          = '1.3.0'
+  s.version          = '1.3.1'
   s.summary          = 'Provides a UI and API layer for Giphy discovery and integration.'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ An easy to use library that provides a UI and API layer for Giphy discovery and 
   s.author           = { 'Brendan Lee' => 'brendan@52inc.com' }
   s.source           = { :git => 'https://github.com/52inc/SwiftyGiphy.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/52_inc'
-
+  s.swift_versions   = '5.0'
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'Library/*.*'
